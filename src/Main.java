@@ -100,7 +100,7 @@ public class Main {
         List list9L2 = new List(arrayOfStringsSmall1Task9);
         list9L2.printList();
         System.out.println();
-        System.out.println(HomeWork.task9(list9L1, list9L2));
+        System.out.println("Первый массив содержит второй массив: " + Homework19.task9(list9L1, list9L2));
         System.out.println();
 
         list9L1.printList();
@@ -108,7 +108,7 @@ public class Main {
         list9L2 = new List(arrayOfStringsSmall2Task9);
         list9L2.printList();
         System.out.println();
-        System.out.println(HomeWork.task9(list9L1, list9L2));
+        System.out.println("Первый массив содержит второй массив: " + Homework19.task9(list9L1, list9L2));
         System.out.println();
 
         System.out.println("Task10");                                           //Task10

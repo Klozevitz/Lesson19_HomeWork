@@ -10,6 +10,13 @@ public class List {
         this.length = length;
     }
 
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
 
     public List() {
         this.head = null;
@@ -29,15 +36,7 @@ public class List {
         this.length = arrayInput.length;
     }
 
-    public Node getHead() {
-        return head;
-    }
-
-    public void setHead(Node head) {
-        this.head = head;
-    }
-
-    public Node getTail() {
+    public Node getLast() {
         Node nodeTmp = this.head;
         while (nodeTmp.getNextNode() != null) {
             nodeTmp = nodeTmp.getNextNode();

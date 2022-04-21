@@ -108,7 +108,7 @@ public class HomeWork {
         return count;
     }
 
-    public static boolean isAlphabet(String word1, String word2) {
+    public static boolean isAlphabetTask8(String word1, String word2) {
         for (int i = 0; i < Math.min(word1.length(), word2.length()); i++) {
             if (Character.toLowerCase(word1.charAt(i)) != Character.toLowerCase(word2.charAt(i))) {
                 return ((Character.toLowerCase(word1.charAt(i)) < Character.toLowerCase(word2.charAt(i))));
@@ -121,7 +121,7 @@ public class HomeWork {
         Node nodeTmp = list.getHead();
 
         while (nodeTmp.getNextNode() != null) {
-            if(!isAlphabet(nodeTmp.getValue().toString(),nodeTmp.getNextNode().getValue().toString())){
+            if(!isAlphabetTask8(nodeTmp.getValue().toString(),nodeTmp.getNextNode().getValue().toString())) {
                 return false;
             }
             nodeTmp = nodeTmp.getNextNode();

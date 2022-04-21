@@ -1,6 +1,10 @@
 import java.util.Iterator;
 
 public class ListIterator implements Iterator<Node> {
+    private List list;
+    private Node nodeTmp;
+    private int counter;
+
     public List getList() {
         return list;
     }
@@ -8,10 +12,6 @@ public class ListIterator implements Iterator<Node> {
     public void setList(List list) {
         this.list = list;
     }
-
-    private List list;
-    private Node nodeTmp;
-    private int counter;
 
     public Node getNodeTmp() {
         return nodeTmp;
