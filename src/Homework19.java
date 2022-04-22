@@ -83,29 +83,27 @@ public class Homework19 {
         return true;
     }
 
+    private static boolean ifListPartContains(ListIterator listIteratorBig, ListIterator listIteratorSmall) {
+        int counter = 0;
+        while (listIteratorSmall.hasNext() && listIteratorBig.getNodeTmp() != null) {
+            if (listIteratorBig.getNodeTmp().nodeEqualValue(listIteratorSmall.getNodeTmp())) {
+                counter++;
+            } else {
+                counter = 0;
+            }
+            listIteratorBig.next();
+            listIteratorSmall.next();
+        }
+        return (counter == listIteratorSmall.getList().getLength());
+    }
+
     public static boolean task9(List listBig, List listSmall) {
         ListIterator listIteratorBig = new ListIterator(listBig);
         ListIterator listIteratorSmall = new ListIterator(listSmall);
-        int counter = 0;
-
         while (listIteratorBig.hasNext()) {
-            if (listIteratorBig.getNodeTmp().getValue().toString().equals(listIteratorSmall.getList().getHead().getValue().toString())) {
-                List listPartBig = new List(listIteratorBig.getNodeTmp());
-                listPartBig.printList();
-                System.out.println();
-                ListIterator listIteratorSmallBuff = new ListIterator(listSmall);
-                ListIterator listPartBigIterator = new ListIterator(listPartBig);
-                while (listIteratorSmallBuff.hasNext() && listPartBigIterator.getNodeTmp() != null) {
-                    if (listPartBigIterator.getNodeTmp().getValue().toString().equals(listIteratorSmallBuff.getNodeTmp().getValue().toString())) {
-                        counter++;
-                        System.out.println(listPartBigIterator.getNodeTmp().getValue().toString() + " " + listIteratorSmallBuff.getNodeTmp().getValue().toString() + " " + counter);
-                    } else {
-                        counter = 0;
-                    }
-                    listPartBigIterator.next();
-                    listIteratorSmallBuff.next();
-                }
-                if (counter == listSmall.getLength()) {
+            if (listIteratorBig.getNodeTmp().nodeEqualValue(listIteratorSmall.getList().getHead())) {
+                if (ifListPartContains(new ListIterator(new List(listIteratorBig.getNodeTmp())),
+                        new ListIterator(listIteratorSmall.getList()))) {
                     return true;
                 }
             }
@@ -113,7 +111,6 @@ public class Homework19 {
         }
         return false;
     }
-
     //Понять, есть ли смысл решать через итератор задачи 2, 3, 4, 10
 
 }

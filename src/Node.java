@@ -32,5 +32,9 @@ public class Node {
         this.value = value;
         this.nextNode = nextNode;
     }
+
+    public boolean nodeEqualValue(Node node) {
+        return (this.getValue() == node.getValue());
+    }
 }
 
