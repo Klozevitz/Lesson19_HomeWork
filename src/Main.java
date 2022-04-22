@@ -30,8 +30,6 @@ public class Main {
         list1.printList();
         System.out.println(" - " + Homework19.task1(list1) + "\n");
 
-
-
         System.out.println("Task2");                                            //Task2
         List list2 = new List(arrayTask1234);
         list2.printList();
@@ -72,7 +70,7 @@ public class Main {
         list26.printList();
         System.out.println();
         System.out.println(Homework19.task6(list26));
-        System.out.println();*/
+        System.out.println();
 
         System.out.println("Task7");                                            //Task07
         List list7 = new List(arrayOfStringsTask7);
@@ -80,9 +78,9 @@ public class Main {
         System.out.println();
         System.out.println("С первым словом " + Homework19.task7(list7, true) + " совпадений (c учетом слова).");
         System.out.println("С последним словом " + Homework19.task7(list7, false) + " совпадений (с учетом слова).");
-        System.out.println();
+        System.out.println();*/
 
-        /*System.out.println("Task8");                                            //Task08
+        System.out.println("Task8");                                            //Task08
         List list18 = new List(arrayOfStrings1Task8);
         list18.printList();
         System.out.println();
@@ -93,7 +91,7 @@ public class Main {
         System.out.println(HomeWork.task8(list28));
         System.out.println();
 
-        System.out.println("Task9");                                            //Task09
+        /*System.out.println("Task9");                                            //Task09
         List list9L1 = new List(arrayOfStringsBigTask9);
         list9L1.printList();
         System.out.println();

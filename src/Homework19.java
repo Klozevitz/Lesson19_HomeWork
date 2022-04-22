@@ -74,8 +74,9 @@ public class Homework19 {
 
     public static boolean task8(List list){
         ListIterator listIterator = new ListIterator(list);
-        while (listIterator.hasNext()) {
-            if (isAlphabetTask8(listIterator.getNodeTmp().toString(), listIterator.getNodeTmp().getNextNode().toString())) {
+        while (listIterator.getNodeTmp().getNextNode() != null) {
+            if (!isAlphabetTask8(listIterator.getNodeTmp().getValue().toString(),
+                    listIterator.getNodeTmp().getNextNode().getValue().toString())) {
                 return false;
             }
             listIterator.next();
@@ -90,14 +91,18 @@ public class Homework19 {
         }
     }
 
+    private static void stringBuilderInitializeTask91(StringBuilder stringBuilder, ListIterator listIterator) {
+        listIterator.forEachRemaining(node -> stringBuilder.append(node.getValue().toString()));
+    }
+
     public static boolean task9(List listBig, List listSmall) {
         StringBuilder stringBuilderBig = new StringBuilder();
         StringBuilder stringBuilderSmall = new StringBuilder();
 
         ListIterator listIterator = new ListIterator(listBig);
-        stringBuilderInitializeTask9(stringBuilderBig, listIterator);
+        stringBuilderInitializeTask91(stringBuilderBig, listIterator);
         listIterator = new ListIterator(listSmall);
-        stringBuilderInitializeTask9(stringBuilderSmall, listIterator);
+        stringBuilderInitializeTask91(stringBuilderSmall, listIterator);
 
         return (stringBuilderBig.toString().contains(stringBuilderSmall.toString()));
     }
