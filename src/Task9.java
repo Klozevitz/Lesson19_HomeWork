@@ -8,7 +8,8 @@ public class Task9 {
         while (listIteratorSmall.hasNext() && listIteratorBig.getNodeTmp() != null) {
             if (ifEqualNodeValues(listIteratorBig.getNodeTmp(),listIteratorSmall.getNodeTmp())) {
                 counter++;
-                System.out.println(listIteratorBig.getNodeTmp().getValue().toString() + listIteratorSmall.getNodeTmp().getValue().toString() + " " + counter);
+                System.out.println(listIteratorBig.getNodeTmp().getValue().toString() + " - " +
+                        listIteratorSmall.getNodeTmp().getValue().toString() + " : " + counter);
             } else {
                 counter = 0;
             }
