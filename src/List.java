@@ -83,7 +83,6 @@ public class List {
         this.head = node;
     }
 
-
     public void pop() {
         Node nodeTmp = this.head;
         while (nodeTmp.getNextNode().getNextNode() != null) {
