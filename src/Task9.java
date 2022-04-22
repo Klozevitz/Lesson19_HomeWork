@@ -1,35 +1,44 @@
 public class Task9 {
-    public static boolean task9(List listBig, List listSmall) {
-        ListIterator listIteratorBig = new ListIterator(listBig);
-        ListIterator listIteratorSmall = new ListIterator(listSmall);
-        int counter = 0;
+    private static boolean ifEqualNodeValues(Node nodeBig, Node nodeSmall) {
+        return (nodeBig.getValue().toString().equals(nodeSmall.getValue().toString()));
+    }
 
+    private static boolean ifListPartContains(ListIterator listIteratorBig, ListIterator listIteratorSmall) {
+        int counter = 0;
+        while (listIteratorSmall.hasNext() && listIteratorBig.getNodeTmp() != null) {
+            if (ifEqualNodeValues(listIteratorBig.getNodeTmp(),listIteratorSmall.getNodeTmp())) {
+                counter++;
+                System.out.println(listIteratorBig.getNodeTmp().getValue().toString() + listIteratorSmall.getNodeTmp().getValue().toString() + " " + counter);
+            } else {
+                counter = 0;
+            }
+            listIteratorBig.next();
+            listIteratorSmall.next();
+        }
+        return (counter == listIteratorSmall.getList().getLength());
+    }
+
+    private static boolean ifListContains(ListIterator listIteratorBig, ListIterator listIteratorSmall) {
         while (listIteratorBig.hasNext()) {
-            if (listIteratorBig.getNodeTmp().getValue().toString().equals(listIteratorSmall.getList().getHead().getValue().toString())) {
-                List listPart = new List(listIteratorBig.getNodeTmp());
-                ListIterator listIteratorSmallBuff = new ListIterator(listSmall);
-                ListIterator listPartIterator = new ListIterator(listPart);
-                while (listIteratorSmallBuff.hasNext()) {
-                    if (listPartIterator.getNodeTmp().getValue().toString().equals(listIteratorSmallBuff.getNodeTmp().getValue().toString())) {
-                        counter ++;
-                    }
-                    else {
-                        counter = 0;
-                    }
-                    listPartIterator.next();
-                    listIteratorSmallBuff.next();
+            if (ifEqualNodeValues(listIteratorBig.getNodeTmp(), listIteratorSmall.getList().getHead())) {
+                System.out.println("Натолкнулись на первое слово маленького списка- смотрим дальше остаток:");
+                new List(listIteratorBig.getNodeTmp()).printList();
+                System.out.println();
+                if (ifListPartContains(new ListIterator(new List(listIteratorBig.getNodeTmp())),
+                                       new ListIterator(listIteratorSmall.getList()))) {
+                    return true;
                 }
-                if (counter == listSmall.getLength()) return true;
             }
             listIteratorBig.next();
         }
         return false;
     }
 
+    public static boolean task9(List listBig, List listSmall) {
+        return ifListContains(new ListIterator(listBig), new ListIterator(listSmall));
+    }
+
     public static void main(String[] args) {
-        //String[] arrayOfStringsBigTask9 = {"alpha", "crash", "Java", "brandy", "crash", "Java", "lie", "opportunity", "rock",
-        //        "towel", "Uranus", "victory", "zoo"};
-        //String[] arrayOfStringsSmall1Task9 = {"crash", "Java", "lie", "opportunity", "rock", "towel"};
         String[] arrayOfStringsBigTask9 = {"alpha", "crash", "Java", "brandy", "crash", "Java", "lie",
                 "opportunity", "rock", "towel", "Uranus", "victory", "zoo"};
         String[] arrayOfStringsSmall1Task9 = {"crash", "Java", "lie", "opportunity", "rock", "towel"};
@@ -44,8 +53,23 @@ public class Task9 {
         List list9L2 = new List(arrayOfStringsSmall1Task9);
         list9L2.printList();
         System.out.println();
-        System.out.println(Task9.task9(list9L1, list9L2));
-        //System.out.println("Первый массив содержит второй массив: " + Task9.task9(list9L1, list9L2));
+        System.out.println("Первый массив содержит второй массив: " + task9(list9L1, list9L2));
+        System.out.println();
+
+        list9L1.printList();
+        System.out.println();
+        list9L2 = new List(arrayOfStringsSmall2Task9);
+        list9L2.printList();
+        System.out.println();
+        System.out.println("Первый массив содержит второй массив: " + task9(list9L1, list9L2));
+        System.out.println();
+
+        list9L1.printList();
+        System.out.println();
+        list9L2 = new List(arrayOfStringsSmall3Task9);
+        list9L2.printList();
+        System.out.println();
+        System.out.println("Первый массив содержит второй массив: " + task9(list9L1, list9L2));
         System.out.println();
     }
 }

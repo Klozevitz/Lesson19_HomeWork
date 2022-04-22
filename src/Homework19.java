@@ -83,29 +83,6 @@ public class Homework19 {
         return true;
     }
 
-    /*private static void stringBuilderInitializeTask9(StringBuilder stringBuilder, ListIterator listIterator) {
-        while (listIterator.hasNext()) {
-            stringBuilder.append(listIterator.getNodeTmp().getValue().toString());
-            listIterator.next();
-        }
-    }
-
-    private static void stringBuilderInitializeTask91(StringBuilder stringBuilder, ListIterator listIterator) {
-        listIterator.forEachRemaining(node -> stringBuilder.append(node.getValue().toString()));
-    }
-
-    public static boolean task9(List listBig, List listSmall) {
-        StringBuilder stringBuilderBig = new StringBuilder();
-        StringBuilder stringBuilderSmall = new StringBuilder();
-
-        ListIterator listIterator = new ListIterator(listBig);
-        stringBuilderInitializeTask91(stringBuilderBig, listIterator);
-        listIterator = new ListIterator(listSmall);
-        stringBuilderInitializeTask91(stringBuilderSmall, listIterator);
-
-        return (stringBuilderBig.toString().contains(stringBuilderSmall.toString()));
-    }*/
-
     public static boolean task9(List listBig, List listSmall) {
         ListIterator listIteratorBig = new ListIterator(listBig);
         ListIterator listIteratorSmall = new ListIterator(listSmall);
@@ -113,22 +90,24 @@ public class Homework19 {
 
         while (listIteratorBig.hasNext()) {
             if (listIteratorBig.getNodeTmp().getValue().toString().equals(listIteratorSmall.getList().getHead().getValue().toString())) {
-                List listPart = new List(listIteratorBig.getNodeTmp());
-                listPart.printList();
+                List listPartBig = new List(listIteratorBig.getNodeTmp());
+                listPartBig.printList();
                 System.out.println();
                 ListIterator listIteratorSmallBuff = new ListIterator(listSmall);
-                ListIterator listPartIterator = new ListIterator(listPart);
-                while (listIteratorSmallBuff.hasNext() /*&& listPartIterator.hasNext()*/) {
-                    if (listPartIterator.getNodeTmp().getValue().toString().equals(listIteratorSmallBuff.getNodeTmp().getValue().toString())) {
+                ListIterator listPartBigIterator = new ListIterator(listPartBig);
+                while (listIteratorSmallBuff.hasNext() && listPartBigIterator.getNodeTmp() != null) {
+                    if (listPartBigIterator.getNodeTmp().getValue().toString().equals(listIteratorSmallBuff.getNodeTmp().getValue().toString())) {
                         counter++;
-                        System.out.println(listPartIterator.getNodeTmp().getValue().toString() + " " + listIteratorSmallBuff.getNodeTmp().getValue().toString() + " " + counter);
+                        System.out.println(listPartBigIterator.getNodeTmp().getValue().toString() + " " + listIteratorSmallBuff.getNodeTmp().getValue().toString() + " " + counter);
                     } else {
                         counter = 0;
                     }
-                    listPartIterator.next();
+                    listPartBigIterator.next();
                     listIteratorSmallBuff.next();
                 }
-                if (counter == listSmall.getLength()) return true;
+                if (counter == listSmall.getLength()) {
+                    return true;
+                }
             }
             listIteratorBig.next();
         }
