@@ -15,10 +15,11 @@ public class Main {
         String[] arrayOfStrings2Task8 = {"alpha", "brandy", "crash", "java", "lie", "opportunity", "Rocknroll", "rock",
                                             "towel", "uranus", "victory", "zoo"};
 
-        String[] arrayOfStringsBigTask9 = {"alpha", "brandy", "crash", "Java", "lie", "opportunity", "rock",
-                                            "towel", "Uranus", "victory", "zoo"};
+        String[] arrayOfStringsBigTask9 = {"alpha", "crash", "Java", "brandy", "crash", "Java", "lie",
+                                            "opportunity", "rock", "towel", "Uranus", "victory", "zoo"};
         String[] arrayOfStringsSmall1Task9 = {"crash", "Java", "lie", "opportunity", "rock", "towel"};
         String[] arrayOfStringsSmall2Task9 = {"crash", "Java", "lie", "rock", "towel"};
+        String[] arrayOfStringsSmall3Task9 = {"towel", "Uranus", "victory", "zoo", "zebra"};
 
         String[] arrayOrStringsTask10 = {"crash", "Java", "lie", "opportunity", "rock", "towel", "Uranus"};
 
@@ -80,7 +81,7 @@ public class Main {
         System.out.println("С последним словом " + Homework19.task7(list7, false) + " совпадений (с учетом слова).");
         System.out.println();*/
 
-        System.out.println("Task8");                                            //Task08
+        /*System.out.println("Task8");                                            //Task08
         List list18 = new List(arrayOfStrings1Task8);
         list18.printList();
         System.out.println();
@@ -89,9 +90,9 @@ public class Main {
         list28.printList();
         System.out.println();
         System.out.println(HomeWork.task8(list28));
-        System.out.println();
+        System.out.println();*/
 
-        /*System.out.println("Task9");                                            //Task09
+        System.out.println("Task9");                                            //Task09
         List list9L1 = new List(arrayOfStringsBigTask9);
         list9L1.printList();
         System.out.println();
@@ -109,7 +110,15 @@ public class Main {
         System.out.println("Первый массив содержит второй массив: " + Homework19.task9(list9L1, list9L2));
         System.out.println();
 
-        System.out.println("Task10");                                           //Task10
+        list9L1.printList();
+        System.out.println();
+        list9L2 = new List(arrayOfStringsSmall3Task9);
+        list9L2.printList();
+        System.out.println();
+        System.out.println("Первый массив содержит второй массив: " + Homework19.task9(list9L1, list9L2));
+        System.out.println();
+
+        /*System.out.println("Task10");                                           //Task10
         List list10 = new List(arrayOrStringsTask10);
         list10.printList();
         System.out.println();

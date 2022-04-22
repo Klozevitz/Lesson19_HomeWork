@@ -1,5 +1,5 @@
 public class Homework19 {
-    public static double task1(List list){
+    public static double task1(List list) {
         int sum = 0;
         ListIterator listIterator = new ListIterator(list);
         while (listIterator.hasNext()) {
@@ -17,8 +17,8 @@ public class Homework19 {
     public static int task5(List list) {
         int counter = 0;
         ListIterator listIterator = new ListIterator(list);
-        while (listIterator.hasNext()){
-            if(isFirstLastSameLetterTask5(listIterator.getNodeTmp())) {
+        while (listIterator.hasNext()) {
+            if (isFirstLastSameLetterTask5(listIterator.getNodeTmp())) {
                 counter++;
             }
             listIterator.next();
@@ -34,7 +34,7 @@ public class Homework19 {
     public static boolean task6(List list) {
         ListIterator listIterator = new ListIterator(list);
         while (listIterator.getNodeTmp().getNextNode() != null) {
-            if(!isLastFirstSameLetterTask6(listIterator.getNodeTmp())) {
+            if (!isLastFirstSameLetterTask6(listIterator.getNodeTmp())) {
                 return false;
             }
             listIterator.next();
@@ -42,7 +42,7 @@ public class Homework19 {
         return true;
     }
 
-    private static int equalsFirstLastCounterTask7(ListIterator listIterator, Object value){
+    private static int equalsFirstLastCounterTask7(ListIterator listIterator, Object value) {
         int counter = 0;
         while (listIterator.hasNext()) {
             if (value.toString().equalsIgnoreCase(listIterator.getNodeTmp().getValue().toString())) {
@@ -57,8 +57,7 @@ public class Homework19 {
         ListIterator listIterator = new ListIterator(list);
         if (isFirst) {
             return equalsFirstLastCounterTask7(listIterator, listIterator.getList().getHead().getValue());
-        }
-        else {
+        } else {
             return equalsFirstLastCounterTask7(listIterator, listIterator.getList().getLast().getValue());
         }
     }
@@ -72,7 +71,7 @@ public class Homework19 {
         return (word1.length() < word2.length());
     }
 
-    public static boolean task8(List list){
+    public static boolean task8(List list) {
         ListIterator listIterator = new ListIterator(list);
         while (listIterator.getNodeTmp().getNextNode() != null) {
             if (!isAlphabetTask8(listIterator.getNodeTmp().getValue().toString(),
@@ -84,7 +83,7 @@ public class Homework19 {
         return true;
     }
 
-    private static void stringBuilderInitializeTask9(StringBuilder stringBuilder, ListIterator listIterator) {
+    /*private static void stringBuilderInitializeTask9(StringBuilder stringBuilder, ListIterator listIterator) {
         while (listIterator.hasNext()) {
             stringBuilder.append(listIterator.getNodeTmp().getValue().toString());
             listIterator.next();
@@ -105,6 +104,35 @@ public class Homework19 {
         stringBuilderInitializeTask91(stringBuilderSmall, listIterator);
 
         return (stringBuilderBig.toString().contains(stringBuilderSmall.toString()));
+    }*/
+
+    public static boolean task9(List listBig, List listSmall) {
+        ListIterator listIteratorBig = new ListIterator(listBig);
+        ListIterator listIteratorSmall = new ListIterator(listSmall);
+        int counter = 0;
+
+        while (listIteratorBig.hasNext()) {
+            if (listIteratorBig.getNodeTmp().getValue().toString().equals(listIteratorSmall.getList().getHead().getValue().toString())) {
+                List listPart = new List(listIteratorBig.getNodeTmp());
+                listPart.printList();
+                System.out.println();
+                ListIterator listIteratorSmallBuff = new ListIterator(listSmall);
+                ListIterator listPartIterator = new ListIterator(listPart);
+                while (listIteratorSmallBuff.hasNext() /*&& listPartIterator.hasNext()*/) {
+                    if (listPartIterator.getNodeTmp().getValue().toString().equals(listIteratorSmallBuff.getNodeTmp().getValue().toString())) {
+                        counter++;
+                        System.out.println(listPartIterator.getNodeTmp().getValue().toString() + " " + listIteratorSmallBuff.getNodeTmp().getValue().toString() + " " + counter);
+                    } else {
+                        counter = 0;
+                    }
+                    listPartIterator.next();
+                    listIteratorSmallBuff.next();
+                }
+                if (counter == listSmall.getLength()) return true;
+            }
+            listIteratorBig.next();
+        }
+        return false;
     }
 
     //Понять, есть ли смысл решать через итератор задачи 2, 3, 4, 10
